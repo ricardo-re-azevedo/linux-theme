@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2283
+
+name         = bloodrust
+icon         = 󰚌
+pixelOffset  = 2 # Icon offset for bar
+wallpaperDir      = $HOME/.local/bin/set-wallpaper
+themeUpdateScript = $HOME/.local/bin/theme
+
+# fonts
+font          = monospace
+
+# colors
+background    = #1F2932
+foreground    = #AFB3BD
+primary       = #7C545F
+buttonPrimary = #7C545F
+sliderTrough  = #293642
+hover         = #293642
+warning       = #7C7C54
+barBorder     = #7C545F
+windowBorder  = #AFB3BD
+alertBorder   = #7C545F
+
+# spacing
+# Gap (px) between tiled windows.
+gaps          = 5
+# Corner radius (px) for client‑side decorations.
+borderRadius  = 8
+#	Window border width (px).
+borderWidth   = 2
+
+# window
+windowOpacity = 0.98 # Opacity of app windows

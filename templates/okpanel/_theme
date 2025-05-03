@@ -1,0 +1,20 @@
+
+    {
+        name         = ${name}
+        icon         = ${icon}
+        pixelOffset  = ${pixelOffset}
+        wallpaperDir = ${wallpaperDir}
+
+        colors = {
+            background    = ${background}
+            foreground    = ${foreground}
+            primary       = ${primary}
+            buttonPrimary = ${buttonPrimary}
+            sliderTrough  = ${sliderTrough}
+            hover         = ${hover}
+            warning       = ${warning}
+            barBorder     = ${barBorder}
+            windowBorder  = ${windowBorder}
+            alertBorder   = ${alertBorder}
+        }
+    },

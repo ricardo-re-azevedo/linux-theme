@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2283
+
+name         = mono
+icon         = M
+pixelOffset  = 2 # Icon offset for bar
+wallpaperDir      = $HOME/.local/bin/set-wallpaper
+themeUpdateScript = $HOME/.local/bin/theme
+
+# fonts
+font              = monospace
+
+# colors
+background    = #1E1E1E
+foreground    = #AFB3BD
+primary       = #7C545F
+buttonPrimary = #7C545F
+sliderTrough  = #293642
+hover         = #293642
+warning       = #7C7C54
+barBorder     = #7C545F
+windowBorder  = #33ccffee
+alertBorder   = #7C545F
+
+textColor         = #abb2bf
+textColorHeading  = #e06c75
+textColorSelected = #e5c07b
+
+# spacing
+# Gap (px) between tiled windows.
+gaps          = 5
+# Corner radius (px) for client‑side decorations.
+borderRadius  = 8
+#	Window border width (px).
+borderWidth   = 2
+
+# window
+windowOpacity = 0.98 # Opacity of app windows
