@@ -4,7 +4,7 @@
 name         = bloodrust
 icon         = 󰚌
 pixelOffset  = 2 # Icon offset for bar
-wallpaperDir      = $HOME/.local/bin/set-wallpaper
+wallpaperDir      = $HOME/.local/share/theme/wallpaper
 themeUpdateScript = $HOME/.local/bin/theme
 
 # fonts

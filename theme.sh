@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-THEMES_DIR="../linux-theme/themes/"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THEMES_DIR="$SCRIPT_DIR/themes"
 
 # Check if an argument is provided
 if [ $# -eq 0 ]; then
@@ -10,10 +11,10 @@ if [ $# -eq 0 ]; then
 fi
 
 read_theme() {
-  THEME_FILE="../linux-theme/themes/$1"
+  THEME_FILE="$THEMES_DIR/$1"
 
   if [ ! -f "${THEME_FILE}" ]; then
-    echo "Theme file does not exist"
+    echo "Theme file does not exist: ${THEME_FILE}"
     exit 1
   fi
   # export all vars from config file
@@ -31,6 +32,8 @@ hypr() {
   mkdir -p "$HOME/.config/hypr"
   envsubst "${THEME_VAR_NAMES}" < "./templates/hypr/hyprland.conf" > "$HOME/.config/hypr/hyprland.conf"
   envsubst "${THEME_VAR_NAMES}" < "./templates/hypr/hyprlock.conf" > "$HOME/.config/hypr/hyprlock.conf"
+  envsubst "${THEME_VAR_NAMES}" < "./templates/hypr/keybindings.conf" > "$HOME/.config/hypr/keybindings.conf"
+
   # col.active_border must be in format rgba(ffffff) without a #
   sed -i -e 's/col.active_border = rgba(#/col.active_border = rgba(/g' "$HOME/.config/hypr/hyprland.conf"
 }

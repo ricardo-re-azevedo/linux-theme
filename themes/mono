@@ -4,8 +4,6 @@
 name         = mono
 icon         = M
 pixelOffset  = 2 # Icon offset for bar
-wallpaperDir      = $HOME/.local/bin/set-wallpaper
-themeUpdateScript = $HOME/.local/bin/theme
 
 # fonts
 font              = monospace
