@@ -4,7 +4,7 @@ corner-radius = ${borderRadius}
 outline-width = 0
 border-width = ${borderWidth}
 
-font = ${font}
+font = /usr/share/fonts/noto/NotoSansMono-Regular.ttf
 font-size = 12
 
 text-color       = ${textColor}

@@ -16,7 +16,7 @@ buttonPrimary = #7C545F
 sliderTrough  = #293642
 hover         = #293642
 warning       = #7C7C54
-barBorder     = #7C545F
+barBorder     = #637D4E
 windowBorder  = #33ccffee
 alertBorder   = #7C545F
 

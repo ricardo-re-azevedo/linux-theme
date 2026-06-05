@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+echo "theming system"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 THEMES_DIR="$SCRIPT_DIR/themes"
+echo "$SCRIPT_DIR"
 
 # Check if an argument is provided
 if [ $# -eq 0 ]; then
@@ -30,9 +32,10 @@ read_theme() {
 hypr() {
   # Hyprland theme
   mkdir -p "$HOME/.config/hypr"
-  envsubst "${THEME_VAR_NAMES}" < "./templates/hypr/hyprland.conf" > "$HOME/.config/hypr/hyprland.conf"
-  envsubst "${THEME_VAR_NAMES}" < "./templates/hypr/hyprlock.conf" > "$HOME/.config/hypr/hyprlock.conf"
-  envsubst "${THEME_VAR_NAMES}" < "./templates/hypr/keybindings.conf" > "$HOME/.config/hypr/keybindings.conf"
+  envsubst "${THEME_VAR_NAMES}" < "$SCRIPT_DIR/templates/hypr/hyprland.conf" > "$HOME/.config/hypr/hyprland.conf"
+  envsubst "${THEME_VAR_NAMES}" < "$SCRIPT_DIR/templates/hypr/hyprlock.conf" > "$HOME/.config/hypr/hyprlock.conf"
+  envsubst "${THEME_VAR_NAMES}" < "$SCRIPT_DIR/templates/hypr/hypridle.conf" > "$HOME/.config/hypr/hyprdle.conf"
+  envsubst "${THEME_VAR_NAMES}" < "$SCRIPT_DIR/templates/hypr/keybindings.conf" > "$HOME/.config/hypr/keybindings.conf"
 
   # col.active_border must be in format rgba(ffffff) without a #
   sed -i -e 's/col.active_border = rgba(#/col.active_border = rgba(/g' "$HOME/.config/hypr/hyprland.conf"
@@ -40,20 +43,21 @@ hypr() {
 
 tofi() {
   # Hyprland theme
-  THEME_TEMPLATE="./templates/tofi/config"
+  THEME_TEMPLATE="$SCRIPT_DIR/templates/tofi/config"
   mkdir -p "$HOME/.config/tofi"
   envsubst "${THEME_VAR_NAMES}" < "${THEME_TEMPLATE}" > "$HOME/.config/tofi/config"
 }
 
 okpanel() {
+  mkdir -p "$HOME/.config/OkPanel"
   export theme_list=""
   for fp in "themes"/*; do
       # get theme filenames
       fn=$(basename "$fp")
       read_theme $fn
-      theme_list+=$(envsubst < "./templates/okpanel/_theme")
+      theme_list+=$(envsubst < "$SCRIPT_DIR/templates/okpanel/_theme")
   done
-  envsubst < "./templates/okpanel/okpanel.conf" > "$HOME/.config/OkPanel/okpanel.conf"
+  envsubst < "$SCRIPT_DIR/templates/okpanel/okpanel.conf" > "$HOME/.config/OkPanel/okpanel.conf"
 }
 
 read_theme $1
@@ -62,4 +66,4 @@ hypr
 
 # Then the rest
 tofi
-okpanel # update theme file but okpanel with update the theme itself. Needs to be done last
+okpanel # update theme file.  Okpanel will reload to update its theme. Needs to be done last
