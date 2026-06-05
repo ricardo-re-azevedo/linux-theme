@@ -8,7 +8,8 @@ rm -f $HOME/.local/bin/theme
 
 # Install
 mkdir -p $HOME/.local/share/theme
-cp -r $SCRIPT_DIR/. $HOME/.local/share/theme/
+cp -r $SCRIPT_DIR/. $HOME/.local/share/theme
+
 
 mkdir -p $HOME/.local/bin
 ln -s $HOME/.local/share/theme/theme.sh $HOME/.local/bin/theme

@@ -12,11 +12,15 @@ OUTPUT_FILE="$HOME/.config/hypr/hyprpaper.conf"
 # Clear the output file
 > "$OUTPUT_FILE"
 
-echo "splash = false" >> "$OUTPUT_FILE"
-echo "" >> "$OUTPUT_FILE"
-echo "preload = $path" >> "$OUTPUT_FILE"
-echo "" >> "$OUTPUT_FILE"
-echo "wallpaper = , $path" >> "$OUTPUT_FILE"
+echo "splash = false
+
+preload = $path
+
+wallpaper {
+    monitor =
+    path = $path
+}
+" >> "$OUTPUT_FILE"
 
 # Update hyprlock wallpaper
 sed -i "s|.*path.*|    path = ${path}|" "$HOME/.config/hypr/hyprlock.conf"
